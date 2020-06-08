@@ -1,0 +1,57 @@
+.IlusInformasi {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    width: 519px;
+    height: 526.5px;
+}
+
+#ZonaVideo {
+    position: absolute;
+    width: 960px;
+    height: 540px;
+    display: block;
+    margin-left: 126px ;
+    margin-right: auto ;
+    margin-top: 38.5px;
+    
+}
+
+#ZonaArtikel {
+    position: absolulte;
+    width: 666px;
+    height: 295.5px;
+    display: block;
+    margin-right: 124.5px ;
+    margin-top: 38.5px;
+    margin-left: auto;
+    
+}
+
+.IlusAgenda {
+    width: 519px;
+    height: 363.39px;
+    display: block;
+    position: absolute;
+    left : 18.12%;
+    top : 10.46%;
+}
+
+.IlusPrestasi {
+    width: 519px;
+    height: 394.38px;
+    display: block;
+    position: absolute;
+    left : 18.12%;
+    top : 10.46%;
+}
+
+#pengumumankedua {
+    position: absolute;
+    width: 961.5px;
+    height: 136.8px;
+    left: 6.48%;
+    bottom: 16%;
+    background: #FDCE3F;
+}

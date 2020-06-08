@@ -1,0 +1,37 @@
+.IlusPeta {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 161.5px;
+    width: 519px;
+    height: 526.5px;
+}
+
+#GambarLantai {
+    position :relative;
+    width : 960px;
+    height : 345px;
+    display : block;
+    margin-left: auto;
+    margin-right: auto;
+    top : 4.74%;
+}
+
+#InfoSatu {
+    position :absolute;
+    width : 465px;
+    height : 165px;
+    display : block;
+    left : 25%;
+    background: #FDCE3F;
+    top : 50.64%;
+}
+
+#InfoDua {
+    position :absolute;
+    width : 465px;
+    height : 165px;
+    right : 25%;
+    background: #FDCE3F;
+    top : 50.64%;
+}
