@@ -7,9 +7,13 @@ import logo from '../Asset/logo.png';
 
 
 class Home extends Component {
+  
+    
 
 
     render(){
+      
+
     return (
       <body className='Body'>
         
@@ -77,9 +81,8 @@ class Home extends Component {
       </motion.div>
       
         <div id="pengumuman">
-
         </div>
-
+            
         </div>
 
        
