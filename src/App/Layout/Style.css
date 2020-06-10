@@ -6,9 +6,7 @@
       height: 858px;
       left: 6.56%;
       top: 11.38%;
-
-      background: #D8D8D8;
-      border: 1px solid #979797;
+      display: block;
 }
 .Zona2 {
   position: absolute;
@@ -130,3 +128,58 @@ border-radius: 48px 0px 0px 48px;
   color: #FFFFFF;
 }
 
+.TextMerah{
+  font-family: Helvetica Neue;
+  color: #F22D45;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.PosisiJudulInformasi{
+  position: absolute;
+  top: 23.02%;
+  left: 3.58%; 
+}
+
+.TextKonten{
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  color: #053F5E;
+}
+
+.TextInformasi{
+  height : auto;
+  width: 891px;
+  position: absolute;
+  top: 38.37%;
+  left: 3.58%;
+}
+
+.ContainerAutoSLide{
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+#IconLoc {
+  width: 31.5px;
+  height: 43.5px;
+  position: absolute;
+  right: 9.17%;
+  top : 21.4%;
+}
+
+.MerahLokasiTerkini{
+  position :absolute;
+  top : 25%;
+  right: 22.47%;
+}
+
+.KontenLokasiTerkini{
+  position: absolute;
+  right: 22.47%;
+  top: 46.42%;
+}

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { Responsive, Grid, Progress, Button } from 'semantic-ui-react';
+import { Progress, Button } from 'semantic-ui-react';
 import './Style.css';
 import { motion } from "framer-motion"
-import InteraksiMata from '../Components/InteraksiMata';
 import logo from '../Asset/logo.png';
-
+import IconLog from '../Asset/IconLoc.png';
+import Poster from '../Data/Poster';
+import Informasi from '../Data/Pengumuman'
 
 class Home extends Component {
   
@@ -12,19 +13,21 @@ class Home extends Component {
 
 
     render(){
-      
-
     return (
       <body className='Body'>
-        
         <div class= "Zona1">
+          <Poster/>
         </div>
 
         <div class= "Zona2">
           <div id="LokasiTerkini">
-            
+            <div id="IconLoc">
+            <img class="ui fluid image" src={IconLog} alt="IconLoc"/>
+            </div>
+            <p class="TextMerah MerahLokasiTerkini">Lokasi saat ini</p>
+            <p class="TextKonten KontenLokasiTerkini">Lobi DTETI Lantai 1</p>
           </div>
-          
+
           <div id="LogoHome">
           <img class="ui fluid image" src={logo} alt="logo"/>
         </div>
@@ -81,6 +84,8 @@ class Home extends Component {
       </motion.div>
       
         <div id="pengumuman">
+          <p class="TextMerah PosisiJudulInformasi" >Pemberitahuan</p>
+          <Informasi/>
         </div>
             
         </div>
