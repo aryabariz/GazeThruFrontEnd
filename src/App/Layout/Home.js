@@ -8,10 +8,7 @@ import Poster from '../Data/Poster';
 import Informasi from '../Data/Pengumuman'
 
 class Home extends Component {
-  
-    
-
-
+     
     render(){
     return (
       <body className='Body'>
@@ -79,7 +76,7 @@ class Home extends Component {
       <Button className="Button" color={"blue"} >
           <p id="FontButton">Peta</p>
       </Button>
-      <Progress class='ui inverted progress' percent={20} indicating attached='bottom' />
+      <Progress class='ui inverted progress' percent={100} indicating attached='bottom' />
       
       </motion.div>
       

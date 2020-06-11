@@ -10,7 +10,7 @@ import ContentVideo from './Layout/ContentVideo';
 import MenuPeta from './Layout/Peta/MenuPeta';
 import KontenLantai from './Layout/Peta/KontenLantai';
 import TestDatabase from './Data/TesDatabase';
-
+import GambarPeta from './Layout/Peta/GambarPeta';
 
 
 function App() {
@@ -27,7 +27,8 @@ function App() {
       <Route exact path="/MenuInformasi/Prestasi" component={Prestasi}/>
       <Route exact path="/MenuPeta" component={MenuPeta}/>
       <Route exact path="/MenuPeta/KontenLantai" component={KontenLantai}/>
-      <Route exact path="/TestDatabase" component={TestDatabase}/>
+      <Route exact path="/MenuPeta/GambarPeta" component={GambarPeta}/>
+      <Route exact path="/TestDatabase" component={TestDatabase}/>a
     </div>
   );
 }

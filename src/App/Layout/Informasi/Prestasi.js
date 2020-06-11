@@ -43,7 +43,10 @@ class Prestasi extends Component {
                     </div>
 
                     <div id="pengumumankedua">
-
+                    <p class="PosisiJudulInformasi TextHitamNotif">Keterangan</p>
+                        <p class="TextInformasi TextKonten">   Kejuaraan nasional merupakan penghargaan yang didapat dalam negeri Indonesia <br></br>
+                                                                Kejuaraan internasional didapat diluar negeri Indonesia
+                        </p>
                     </div>
 
                     <motion.div     

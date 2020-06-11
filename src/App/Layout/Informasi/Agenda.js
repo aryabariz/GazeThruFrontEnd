@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '.././Style.css';
 import './StyleInformasi.css'
-import { Button, Progress, Segment, Card} from 'semantic-ui-react';
+import { Button, Progress} from 'semantic-ui-react';
 import { motion } from "framer-motion";
 import logo from '../../Asset/logo.png';
 import gmbragenda from '../../Asset/GmbrAgenda.png'
@@ -43,7 +43,10 @@ class Agenda extends Component {
                     </div>
 
                     <div id="pengumumankedua">
-
+                        <p class="PosisiJudulInformasi TextHitamNotif">Keterangan</p>
+                        <p class="TextInformasi TextKonten">   Agenda Internal merupakan kegiatan yang dikhusukan untuk warga DTETI <br></br>
+                                                                Agenda Eksternal merupakan kegiatan yang terbuka untuk umum dan warga DTETI
+                        </p>
                     </div>
 
                     <motion.div     

@@ -179,7 +179,15 @@ border-radius: 48px 0px 0px 48px;
 }
 
 .KontenLokasiTerkini{
-  position: absolute;
-  right: 22.47%;
-  top: 46.42%;
+  position :absolute;
+  top : 45.39%;
+  right: 21%;
+}
+
+.TextHitamNotif {
+  font-family: Helvetica Neue;
+  color: #4A4A4a;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
 }
