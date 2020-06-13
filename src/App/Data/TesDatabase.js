@@ -12,7 +12,7 @@ class TestDatabase extends Component {
       }
   
     componentDidMount() {
-        fetch('https://5edf40429ed06d001696cf4a.mockapi.io/Poster')
+        fetch('https://gazethru-project.herokuapp.com/api/pengumuman/')
             .then(res => res.json())
             .then(json => {
                     this.setState({
@@ -25,7 +25,7 @@ class TestDatabase extends Component {
     render(){
         var {isLoaded, posters} =this.state;
         if (!isLoaded){
-            return <div ClassName="Body">
+            return <div>
                 LOADING BOSS
             </div>;
         }
@@ -37,7 +37,8 @@ class TestDatabase extends Component {
                     Gambar
                     {posters.map(poster =>(
                         <div key={poster.id}>
-                            <img class="ui fluid image" src={poster.image} alt="poster"/>
+                            <img class="ui fluid image" src={poster.pengumuman_text} alt="poster"/>
+                            <p>{poster.pengumuman}</p>
                         </div>
                     ))}
                 

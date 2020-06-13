@@ -4,8 +4,8 @@ import './Style.css';
 import { motion } from "framer-motion"
 import logo from '../Asset/logo.png';
 import IconLog from '../Asset/IconLoc.png';
-import Poster from '../Data/Poster';
-import Informasi from '../Data/Pengumuman'
+import Poster from '../Data/Informasi/Poster';
+import Informasi from '../Data/Informasi/Pengumuman'
 
 class Home extends Component {
      

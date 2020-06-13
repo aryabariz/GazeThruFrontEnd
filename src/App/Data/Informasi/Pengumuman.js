@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import "../Layout/Style.css"
+import "../../Layout/Style.css"
 import Slider from "react-slick"
 
 class Pengumuman extends Component {
@@ -12,7 +12,7 @@ class Pengumuman extends Component {
       }
   
     componentDidMount() {
-        fetch('https://5edf40429ed06d001696cf4a.mockapi.io/Poster')
+        fetch('https://gazethru-project.herokuapp.com/api/pengumuman/')
             .then(res => res.json())
             .then(json => {
                     this.setState({
@@ -41,7 +41,7 @@ class Pengumuman extends Component {
                 <Slider {...settings}>
                 {Pdatas.map(Pdata =>(
                     <p key={Pdata.id}>
-                        {Pdata.pengumuman}
+                        {Pdata.pengumuman_text}
                          </p>
                                      
                 ))}

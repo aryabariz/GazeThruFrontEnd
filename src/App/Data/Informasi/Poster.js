@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import "../Layout/Style.css";
+import "../../Layout/Style.css";
 import Slider from "react-slick";
 
 
@@ -13,7 +13,7 @@ class Poster extends Component {
       }
   
     componentDidMount() {
-        fetch('https://5edf40429ed06d001696cf4a.mockapi.io/Poster')
+        fetch('https://gazethru-project.herokuapp.com/api/poster/')
             .then(res => res.json())
             .then(json => {
                     this.setState({
@@ -45,7 +45,7 @@ class Poster extends Component {
             <Slider {...settings}> 
                 {posters.map(poster =>(
                 <div key={poster.id}>
-                    <img  class="ui fluid image" src={poster.image} alt="poster"/>                 
+                    <img  class="ui fluid image" src={poster.poster_image} alt="poster"/>                 
                 
                 </div>
                 ))}
