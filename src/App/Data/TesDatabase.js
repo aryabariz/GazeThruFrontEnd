@@ -12,7 +12,7 @@ class TestDatabase extends Component {
       }
   
     componentDidMount() {
-        fetch('https://gazethru-project.herokuapp.com/api/pengumuman/')
+        fetch('https://5edf40429ed06d001696cf4a.mockapi.io/petabesar')
             .then(res => res.json())
             .then(json => {
                     this.setState({
@@ -34,13 +34,11 @@ class TestDatabase extends Component {
         
         return (
             <body className="Body">
-                    Gambar
-                    {posters.map(poster =>(
-                        <div key={poster.id}>
-                            <img class="ui fluid image" src={poster.pengumuman_text} alt="poster"/>
-                            <p>{poster.pengumuman}</p>
-                        </div>
-                    ))}
+                   {posters.filter(poster => poster.lantai < 20 && poster.lokasi>30).map(filteredPoster => (
+        <li>
+          {filteredPoster.namaruang}
+        </li>
+      ))}
                 
             </body>
             );
