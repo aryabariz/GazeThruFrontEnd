@@ -8,7 +8,7 @@ import Agenda from './Layout/Informasi/Agenda';
 import Prestasi from './Layout/Informasi/Prestasi';
 import ContentVideo from './Layout/ContentVideo';
 import MenuPeta from './Layout/Peta/MenuPeta';
-import KontenLantai from './Layout/Peta/KontenLantai';
+import KontenLantaiSatu from './Layout/Peta/LantaiSatu/KontenLantaiSatu';
 import TestDatabase from './Data/TesDatabase';
 import GambarPeta from './Layout/Peta/GambarPeta';
 import KontenAgenda from './Layout/Informasi/KontenAgenda';
@@ -28,7 +28,7 @@ function App() {
       <Route exact path="/MenuInformasi/Agenda" component={Agenda}/>
       <Route exact path="/MenuInformasi/Prestasi" component={Prestasi}/>
       <Route exact path="/MenuPeta" component={MenuPeta}/>
-      <Route exact path="/MenuPeta/KontenLantai" component={KontenLantai}/>
+      <Route exact path="/MenuPeta/KontenLantaiSatu" component={KontenLantaiSatu}/>
       <Route exact path="/MenuPeta/GambarPeta" component={GambarPeta}/>
       <Route exact path="/MenuInfromasi/Agenda/KontenAgenda" component={KontenAgenda}/>
       <Route exact path="/MenuInformasi/Prestasi/KontenPrestasi" component={KontenPrestasi}/>
