@@ -11,6 +11,8 @@ import MenuPeta from './Layout/Peta/MenuPeta';
 import KontenLantai from './Layout/Peta/KontenLantai';
 import TestDatabase from './Data/TesDatabase';
 import GambarPeta from './Layout/Peta/GambarPeta';
+import KontenAgenda from './Layout/Informasi/KontenAgenda';
+import KontenPrestasi from './Layout/Informasi/KontenPrestasi';
 
 
 function App() {
@@ -28,7 +30,9 @@ function App() {
       <Route exact path="/MenuPeta" component={MenuPeta}/>
       <Route exact path="/MenuPeta/KontenLantai" component={KontenLantai}/>
       <Route exact path="/MenuPeta/GambarPeta" component={GambarPeta}/>
-      <Route exact path="/TestDatabase" component={TestDatabase}/>a
+      <Route exact path="/MenuInfromasi/Agenda/KontenAgenda" component={KontenAgenda}/>
+      <Route exact path="/MenuInformasi/Prestasi/KontenPrestasi" component={KontenPrestasi}/>
+      <Route exact path="/TestDatabase" component={TestDatabase}/>
     </div>
   );
 }
