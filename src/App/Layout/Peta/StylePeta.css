@@ -35,3 +35,21 @@
     background: #FDCE3F;
     top : 50.64%;
 }
+
+#KontenGambar {
+    position :relative;
+    width : 640px;
+    height : 360px;
+    display : block;
+    left: 33.32%;
+    top : 4.74%;
+}
+
+#KeteranganGambar {
+    position : absolute;
+    width : 960px;
+    height : 180px;
+    background : #fdce3f;
+    top : 49.64%;
+    left: 25%;
+}

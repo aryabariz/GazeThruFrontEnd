@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import '.././Style.css';
-import './StyleInformasi.css'
+import '../.././Style.css';
+import './../StylePeta.css'
 import { Button, Progress} from 'semantic-ui-react';
 import { motion } from "framer-motion";
-import logo from '../../Asset/logo.png';
+import logo from '../../../Asset/logo.png';
 
 
-class KontenAgenda extends Component {
+class KontenLantaiTiga extends Component {
 
 
   render(){
@@ -38,10 +38,14 @@ class KontenAgenda extends Component {
       </motion.div>
       </div> 
       <div class="Bawah">
-          <div id="GambarAgenda">
+          <div id="GambarLantai">
             
           </div>
-          <div id="KeteranganAgenda">
+          <div id="InfoSatu">
+
+          </div>
+
+          <div id="InfoDua">
 
           </div>
 
@@ -62,7 +66,7 @@ class KontenAgenda extends Component {
               >             
                   
               <Button className="Button" color={"blue"} >
-                  <p id="FontButton">Sebelumnya</p>
+                  <p id="FontButton">Barat</p>
               </Button>
               <Progress class='ui inverted progress' percent={20} indicating attached='bottom' />             
           </motion.div>
@@ -84,13 +88,15 @@ class KontenAgenda extends Component {
               >             
                   
               <Button className="Button" color={"blue"} >
-                  <p id="FontButton">Berikutnya</p>
+                  <p id="FontButton">Timur</p>
               </Button>
               <Progress class='ui inverted progress' percent={20} indicating attached='bottom' />             
           </motion.div>
 
       </div>
 
+      
+      
      
     </body>
   );
@@ -98,4 +104,4 @@ class KontenAgenda extends Component {
 }
 
 
-export default KontenAgenda;
+export default KontenLantaiTiga;

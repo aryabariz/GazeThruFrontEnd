@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '.././Style.css';
-import './StylePeta.css'
+import './StyleInformasi.css'
 import { Button, Progress} from 'semantic-ui-react';
 import { motion } from "framer-motion";
 import logo from '../../Asset/logo.png';

@@ -61,8 +61,7 @@
     width : 640px;
     height : 360px;
     display : block;
-    margin-left: auto;
-    margin-right: auto;
+    left: 33.32%;
     top : 4.74%;
 }
 
@@ -72,12 +71,11 @@
     height : 180px;
     background : #fdce3f;
     top : 49.64%;
-    margin-left: auto;
-    margin-right: auto;
+    left: 25%;
 }
 
 #GambarAgenda {
-    position :relative;
+    position :absolute;
     width : 381.4px;
     height : 540px;
     display : block;
@@ -85,11 +83,13 @@
     left : 25%
 }
 
+
+
 #KeteranganAgenda {
-    position :relative;
-    width : 567pxpx;
+    position :absolute;
+    width : 567px;
     height : 540px;
-    display : block;
     top : 7.74%;
-    right : 25%
+    right : 25%;
+    background : #fdce3f
 }

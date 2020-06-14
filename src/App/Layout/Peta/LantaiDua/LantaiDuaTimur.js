@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import '../.././Style.css';
-import './../StylePeta.css'
-import { Button, Progress,]]} from 'semantic-ui-react';
+import '.././StylePeta.css'
+import { Button, Progress} from 'semantic-ui-react';
 import { motion } from "framer-motion";
 import logo from '../../../Asset/logo.png';
 
 
-class KontenLantaiSatu extends Component {
+class LantaiDuaTimur extends Component {
 
 
   render(){
@@ -38,14 +38,10 @@ class KontenLantaiSatu extends Component {
       </motion.div>
       </div> 
       <div class="Bawah">
-          <div id="GambarLantai">
+          <div id="KontenGambar">
             
           </div>
-          <div id="InfoSatu">
-
-          </div>
-
-          <div id="InfoDua">
+          <div id="KeteranganGambar">
 
           </div>
 
@@ -66,7 +62,7 @@ class KontenLantaiSatu extends Component {
               >             
                   
               <Button className="Button" color={"blue"} >
-                  <p id="FontButton">Barat</p>
+                  <p id="FontButton">Sebelumnya</p>
               </Button>
               <Progress class='ui inverted progress' percent={20} indicating attached='bottom' />             
           </motion.div>
@@ -88,7 +84,7 @@ class KontenLantaiSatu extends Component {
               >             
                   
               <Button className="Button" color={"blue"} >
-                  <p id="FontButton">Timur</p>
+                  <p id="FontButton">Berikutnya</p>
               </Button>
               <Progress class='ui inverted progress' percent={20} indicating attached='bottom' />             
           </motion.div>
@@ -104,4 +100,4 @@ class KontenLantaiSatu extends Component {
 }
 
 
-export default KontenLantaiSatu;
+export default LantaiDuaTimur;

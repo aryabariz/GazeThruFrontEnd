@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import '.././Style.css';
-import './StyleInformasi.css'
+import '../.././Style.css';
+import '.././StylePeta.css'
 import { Button, Progress} from 'semantic-ui-react';
 import { motion } from "framer-motion";
-import logo from '../../Asset/logo.png';
+import logo from '../../../Asset/logo.png';
 
 
-class KontenAgenda extends Component {
+class LantaiTigaTimur extends Component {
 
 
   render(){
@@ -38,10 +38,10 @@ class KontenAgenda extends Component {
       </motion.div>
       </div> 
       <div class="Bawah">
-          <div id="GambarAgenda">
+          <div id="KontenGambar">
             
           </div>
-          <div id="KeteranganAgenda">
+          <div id="KeteranganGambar">
 
           </div>
 
@@ -91,6 +91,8 @@ class KontenAgenda extends Component {
 
       </div>
 
+      
+      
      
     </body>
   );
@@ -98,4 +100,4 @@ class KontenAgenda extends Component {
 }
 
 
-export default KontenAgenda;
+export default LantaiTigaTimur;
