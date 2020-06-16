@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '.././Style.css';
 import './StyleInformasi.css'
-import { Button, Progress, Segment, Card} from 'semantic-ui-react';
+import { Button, Progress} from 'semantic-ui-react';
 import { motion } from "framer-motion";
 import logo from '../../Asset/logo.png';
 import gmbrinformasi from '../../Asset/GmbrInformasi.png'

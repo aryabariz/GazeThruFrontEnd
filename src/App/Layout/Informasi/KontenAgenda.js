@@ -4,12 +4,51 @@ import './StyleInformasi.css'
 import { Button, Progress} from 'semantic-ui-react';
 import { motion } from "framer-motion";
 import logo from '../../Asset/logo.png';
+import Slider from "react-slick";
 
 
 class KontenAgenda extends Component {
+    
+    constructor(props){
+        super(props);
+        this.next = this.next.bind(this);
+        this.previous = this.previous.bind(this);
+        this.state ={
+          Agendas: [],
+        }
+      }
+  
+    componentDidMount() {
+        fetch('https://5edf40429ed06d001696cf4a.mockapi.io/agenda')
+            .then(res => res.json())
+            .then(json => {
+                    this.setState({
+                        Agendas: json,
+                    })
+            });
+      }
 
+    next() {
+        this.slider.slickNext();
+        }
+    previous() {
+        this.slider.slickPrev();
+        }    
 
   render(){
+    var {Agendas} =this.state;
+    const settings ={
+        dots: false,
+        infinite: true,
+        slidesToShow: 1,
+        slodesToScroll: 1, 
+        arrows: false,
+        autoplay: false,
+        fade: true,
+        speed: 0,
+
+    };
+
   return (
     <body className='Body'>
       <div class="Atas">
@@ -38,13 +77,31 @@ class KontenAgenda extends Component {
       </motion.div>
       </div> 
       <div class="Bawah">
-          <div id="GambarAgenda">
-            
-          </div>
-          <div id="KeteranganAgenda">
-
-          </div>
-
+          <div class="ZonaKonten">
+                  
+                  <Slider ref={c => (this.slider = c)} {...settings}>
+                        {Agendas.map (Agenda =>(
+                    <div key={Agenda.id}>
+                     <div class="GambarAgenda"  > 
+                     <img  class="ui fluid image" src={Agenda.image_agenda} alt="poster"/>
+                     </div>
+                     <p class="TextHitamJudul KeteranganAgenda BatasAtas">Judul Agenda</p>
+                    <p class="FontJudul KeteranganAgenda">{Agenda.nama_agenda}</p>
+                    <p class="TextHitamJudul SpacerAgenda KeteranganAgenda">Waktu & Tempat</p>
+                    <p class="FontTextAgenda WaktuTempat KeteranganAgenda">{Agenda.nama_agenda} <br></br> {Agenda.tanggal_agenda}<br></br> {Agenda.jam_agenda} </p>
+                    <p class="TextHitamJudul SpacerAgenda KeteranganAgenda">Keterangan</p>
+                    <p class="FontTextAgenda KetAgenda KeteranganAgenda">{Agenda.nama_agenda}</p>
+                    </div>
+                     
+                    
+                ))}
+                </Slider>
+                </div>
+                
+                
+                    
+                     
+          
           <motion.div     
               animate={{
                 y:400,
@@ -61,7 +118,7 @@ class KontenAgenda extends Component {
               }}
               >             
                   
-              <Button className="Button" color={"blue"} >
+              <Button className="Button" color={"blue"} onClick={this.previous} >
                   <p id="FontButton">Sebelumnya</p>
               </Button>
               <Progress class='ui inverted progress' percent={20} indicating attached='bottom' />             
@@ -83,7 +140,7 @@ class KontenAgenda extends Component {
               }}
               >             
                   
-              <Button className="Button" color={"blue"} >
+              <Button className="Button" color={"blue"} onClick={this.next} >
                   <p id="FontButton">Berikutnya</p>
               </Button>
               <Progress class='ui inverted progress' percent={20} indicating attached='bottom' />             

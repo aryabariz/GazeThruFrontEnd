@@ -69,27 +69,112 @@
     position : absolute;
     width : 960px;
     height : 180px;
-    background : #fdce3f;
     top : 49.64%;
     left: 25%;
 }
 
-#GambarAgenda {
-    position :absolute;
+.GambarAgenda {
+    position :relative;
     width : 381.4px;
     height : 540px;
-    display : block;
-    top : 7.74%;
-    left : 25%
+}
+
+
+.KeteranganAgenda {
+    position :relative;
+    left : 40.93%;
+    top: 30px;
 }
 
 
 
-#KeteranganAgenda {
-    position :absolute;
-    width : 567px;
-    height : 540px;
+.BatasAtas{
+    margin-top : 20px;
+}
+
+.TextHitamJudul {
+    font-family: Helvetica Neue;
+    color: #4A4A4a;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    margin: 0px;
+  }
+.SpacerAgenda{
+    margin-top: 30px;
+}
+
+.FontJudul{
+    position:relative;
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 31.5px;
+    line-height: 39px;
+    height: 79.5px;
+    width : 507px;
+    color: #000000;
+    margin-top: 0px;
+}
+
+.FontTextAgenda{
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000000;
+    width: 507px;
+    
+}
+
+.WaktuTempat{
+    font-weight: 500;
+    height: 79.5px;
+}
+
+.KetAgenda{
+    font-weight: normal;
+    height: 198px; 
+}
+
+.ZonaKonten{
+    width: 960px;
+    height: 540px;
+    background : #fdce3f;
+    position: absolute;
     top : 7.74%;
-    right : 25%;
-    background : #fdce3f
+    left : 25%;
+}
+
+.centerImage{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.JudulArtikel{  
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 31.5px;
+    line-height: 39px;
+    height: 39;
+    width : 507px;
+    color: #000000;
+    margin-top: 30px;
+    margin-bottom:auto;
+    margin-left:30px;
+}
+
+.TextKetArtikel {
+    height: 84px;
+    margin-left:30px;
+    margin-bottom:27px;
+    margin-top: auto;
+}
+
+.GambarPrestasi {
+    position :relative;
+    width : 640px;
+    height : 360px;
 }
