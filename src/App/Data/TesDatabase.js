@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../Layout/Style.css';
+import {Redirect} from 'react-router-dom';
 
 class TestDatabase extends Component {
 
@@ -12,7 +13,7 @@ class TestDatabase extends Component {
       }
   
     componentDidMount() {
-        fetch('https://5edf40429ed06d001696cf4a.mockapi.io/petabesar')
+        fetch('https://5edf40429ed06d001696cf4a.mockapi.io/')
             .then(res => res.json())
             .then(json => {
                     this.setState({
@@ -25,9 +26,7 @@ class TestDatabase extends Component {
     render(){
         var {isLoaded, posters} =this.state;
         if (!isLoaded){
-            return <div>
-                LOADING BOSS
-            </div>;
+            return <Redirect to="/TestValue" />;
         }
         else {
 

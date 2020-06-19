@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import Home from './Layout/Home';
-import {Route, Link, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import MenuInformasi from './Layout/Informasi/MenuInformasi';
 import Tentang from './Layout/Informasi/Tentang';
 import Agenda from './Layout/Informasi/Agenda';
@@ -18,7 +18,7 @@ import KontenLantaiTiga  from './Layout/Peta/LantaiTiga/KontenLantaiTiga';
 import LantaiTigaBarat  from './Layout/Peta/LantaiTiga/LantaiTigaBarat';
 import LantaiTigaTimur  from './Layout/Peta/LantaiTiga/LantaiTigaTimur';
 import TestDatabase from './Data/TesDatabase';
-
+import TestValue from './Components/TestValue';
 import KontenAgenda from './Layout/Informasi/KontenAgenda';
 import KontenPrestasi from './Layout/Informasi/KontenPrestasi';
 
@@ -49,6 +49,7 @@ function App() {
           <Route exact path="/MenuInformasi/Agenda/KontenAgenda" component={KontenAgenda}/>
           <Route exact path="/MenuInformasi/Prestasi/KontenPrestasi" component={KontenPrestasi}/>
           <Route exact path="/TestDatabase" component={TestDatabase}/>
+          <Route exact path="/TestValue" component={TestValue}/>
       </Switch>
     </div>
   );
