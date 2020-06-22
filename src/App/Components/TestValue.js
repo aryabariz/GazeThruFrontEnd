@@ -55,7 +55,7 @@ class TestValue extends Component {
          Nilai y : {Math.round(this.state.xbtn2)}</div> 
         <motion.div     
       animate={{
-        x:-400,
+        x:400,
         y:200,
         
       }}
