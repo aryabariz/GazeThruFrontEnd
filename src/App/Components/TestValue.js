@@ -54,8 +54,11 @@ class TestValue extends Component {
         var ws = new WebSocket("wss://echo.websocket.org");
         
         ws.onopen = () => {
-            console.log('connect bisa');
-            
+            console.log('kirim data');
+            ws.send(JSON.stringify({
+              Xbtn1 : this.state.btn1,
+              Xbtn2 : this.state.btn2,
+            }));
         };
 
         ws.onclose = () => {
@@ -65,8 +68,7 @@ class TestValue extends Component {
         
        
     };
-    
-    
+   
     
     
 
