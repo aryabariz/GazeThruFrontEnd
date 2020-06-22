@@ -48,7 +48,7 @@ class TestValue extends Component {
 
       
       connect = () => {
-        var ws = new WebSocket("ws://localhost:2000/");
+        var ws = new WebSocket("ws://localhost:3000/ws");
         let that = this; // cache the this
         var connectInterval;
     
@@ -86,6 +86,20 @@ class TestValue extends Component {
     
             ws.close();
         };
+
+        ws.sendMessage=()=>{
+          try {
+            ws.send(JSON.stringify({
+              Xbtn1: "xbtn1"
+              
+            }));
+            ws.send(JSON.stringify({
+              Xbtn2: "xbtn2"
+            }));
+        } catch (error) {
+            console.log(error) 
+        }
+        }
     };
     
     check = () => {
@@ -93,19 +107,8 @@ class TestValue extends Component {
       if (!ws || ws.readyState === WebSocket.CLOSED) this.connect(); //check if websocket instance is closed, if so call `connect` function.
     };
     
-    sendMessage=()=>{
-      const {websocket} = this.props
-      try {
-        websocket.send(JSON.stringify({
-          Xbtn1: "xbtn1"
-        }));
-        websocket.send(JSON.stringify({
-          Xbtn2: "xbtn2"
-        }));
-    } catch (error) {
-        console.log(error) 
-    }
-    }
+    
+    
 
       
 
