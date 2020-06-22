@@ -22,7 +22,7 @@ class TestValue extends Component {
       
   
     componentDidMount() {
-        this.connect();
+        
         
 
         const styles = window.getComputedStyle(document.getElementById("ButtonSatu"));
@@ -32,6 +32,7 @@ class TestValue extends Component {
         const interval = setInterval(() => {
             //console.log(styles.transform.match(/(-?[0-9.]+)/g));
             //console.log(styles.transform.split('(')[1].split(')')[0].split(',')[5]);
+            this.connect();
             try{
             this.setState({
                 xbtn1: styles.webkitTransform.match(/(-?[0-9.]+)/g)[4],
@@ -43,22 +44,27 @@ class TestValue extends Component {
               console.log(error)
           }
   
-          }, 1000);
+          }, 10000);
           
           return () => clearInterval(interval);  
           
       }
+      
 
       
       connect = () => {
         var ws = new WebSocket("wss://echo.websocket.org");
         
         ws.onopen = () => {
-            console.log('kirim data');
-            ws.send(JSON.stringify({
-              Xbtn1 : this.state.btn1,
-              Xbtn2 : this.state.btn2,
-            }));
+          var json = JSON.stringify({
+            Xbtn1 : this.state.btn1,
+            Xbtn2 : this.state.btn2,                 
+          })
+          ws.send(json)
+          
+            console.log('Sent:'+ json);
+  
+         
         };
 
         ws.onclose = () => {
@@ -89,12 +95,12 @@ class TestValue extends Component {
 
       <body className='Body'>
         
-         <div>Nilai x : {Math.round(this.state.xbtn1)}
-         Nilai y : {Math.round(this.state.xbtn2)}</div> 
+         <div>Nilai x : {this.state.btn1}
+         Nilai y : {this.state.btn2}</div> 
         <motion.div     
       animate={{
         x:100,
-        y:100,
+        y:200,
         
       }}
       transition={{
