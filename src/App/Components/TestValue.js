@@ -26,7 +26,7 @@ class TestValue extends Component {
         //const matrix = styles.transform|| styles.webkitTransform || styles.mozTransform;
         //const ubah = matrix.match(/matrix.*\((.+)\)/);
         //const ubah = new window.WebKitCSSMatrix(styles.transform);
-        const {websocket} = this.props
+        const {websocket} = this.props;
         const interval = setInterval(() => {
             //console.log(styles.transform.match(/(-?[0-9.]+)/g));
             //console.log(styles.transform.split('(')[1].split(')')[0].split(',')[5]);
@@ -36,8 +36,12 @@ class TestValue extends Component {
                 xbtn2: styles.webkitTransform.match(/(-?[0-9.]+)/g)[5],
             })}catch (error) {
               try {
-                websocket.send(this.state.xbtn1) 
-                websocket.send(this.state.xbtn2)
+                websocket.send(JSON.stringify({
+                  Xbtn1: "xbtn1"
+                }));
+                websocket.send(JSON.stringify({
+                  Xbtn2: "xbtn2"
+                }));
             } catch (error) {
                 console.log(error) 
             }
