@@ -21,12 +21,11 @@ class TestValue extends Component {
 
   
     componentDidMount() {
-        
+        this.connect();
         const styles = window.getComputedStyle(document.getElementById("ButtonSatu"));
         //const matrix = styles.transform|| styles.webkitTransform || styles.mozTransform;
         //const ubah = matrix.match(/matrix.*\((.+)\)/);
         //const ubah = new window.WebKitCSSMatrix(styles.transform);
-        const {websocket} = this.props;
         const interval = setInterval(() => {
             //console.log(styles.transform.match(/(-?[0-9.]+)/g));
             //console.log(styles.transform.split('(')[1].split(')')[0].split(',')[5]);
@@ -35,16 +34,7 @@ class TestValue extends Component {
                 xbtn1: styles.webkitTransform.match(/(-?[0-9.]+)/g)[4],
                 xbtn2: styles.webkitTransform.match(/(-?[0-9.]+)/g)[5],
             })}catch (error) {
-              try {
-                websocket.send(JSON.stringify({
-                  Xbtn1: "xbtn1"
-                }));
-                websocket.send(JSON.stringify({
-                  Xbtn2: "xbtn2"
-                }));
-            } catch (error) {
-                console.log(error) 
-            }
+              
               console.log(error)
           }
 
@@ -102,6 +92,21 @@ class TestValue extends Component {
       const { ws } = this.state;
       if (!ws || ws.readyState === WebSocket.CLOSED) this.connect(); //check if websocket instance is closed, if so call `connect` function.
     };
+    
+    sendMessage=()=>{
+      const {websocket} = this.props
+      try {
+        websocket.send(JSON.stringify({
+          Xbtn1: "xbtn1"
+        }));
+        websocket.send(JSON.stringify({
+          Xbtn2: "xbtn2"
+        }));
+    } catch (error) {
+        console.log(error) 
+    }
+    }
+
       
 
       
