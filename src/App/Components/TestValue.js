@@ -44,7 +44,7 @@ class TestValue extends Component {
               console.log(error)
           }
   
-          }, 10000);
+          }, 1000);
           
           return () => clearInterval(interval);  
           
