@@ -12,29 +12,92 @@ class TestValue extends Component {
         super(props);
         this.state= {
             ybtn1:[],
-            xbtn1:[]};
+            xbtn1:[],
+            ws: null,
+          };
             
         this.divRef= React.createRef();
       }
+
+  
     componentDidMount() {
-        const styles = window.getComputedStyle(this.divRef.current);
+        
+        const styles = window.getComputedStyle(document.getElementById("ButtonSatu"));
         //const matrix = styles.transform|| styles.webkitTransform || styles.mozTransform;
         //const ubah = matrix.match(/matrix.*\((.+)\)/);
         //const ubah = new window.WebKitCSSMatrix(styles.transform);
-
+        const {websocket} = this.props
         const interval = setInterval(() => {
             //console.log(styles.transform.match(/(-?[0-9.]+)/g));
             //console.log(styles.transform.split('(')[1].split(')')[0].split(',')[5]);
+            try{
             this.setState({
                 xbtn1: styles.webkitTransform.match(/(-?[0-9.]+)/g)[4],
                 xbtn2: styles.webkitTransform.match(/(-?[0-9.]+)/g)[5],
-            })
-          }, 100);
-          return () => clearInterval(interval);
+            })}catch (error) {
+              try {
+                websocket.send(this.state.xbtn1) 
+                websocket.send(this.state.xbtn2)
+            } catch (error) {
+                console.log(error) 
+            }
+              console.log(error)
+          }
 
-        
+            
+            
+          }, 1000);
+          
+          return () => clearInterval(interval);  
+          
       }
+
+      
+      connect = () => {
+        var ws = new WebSocket("ws://localhost:2000/");
+        let that = this; // cache the this
+        var connectInterval;
     
+        // websocket onopen event listener
+        ws.onopen = () => {
+            console.log("connected websocket main component");
+    
+            this.setState({ ws: ws });
+    
+            that.timeout = 250; // reset timer to 250 on open of websocket connection 
+            clearTimeout(connectInterval); // clear Interval on on open of websocket connection
+        };
+    
+        // websocket onclose event listener
+        ws.onclose = e => {
+            console.log(
+                `Socket is closed. Reconnect will be attempted in ${Math.min(
+                    10000 / 1000,
+                    (that.timeout + that.timeout) / 1000
+                )} second.`,
+                e.reason
+            );
+    
+            that.timeout = that.timeout + that.timeout; //increment retry interval
+            connectInterval = setTimeout(this.check, Math.min(10000, that.timeout)); //call check function after timeout
+        };
+    
+        // websocket onerror event listener
+        ws.onerror = err => {
+            console.error(
+                "Socket encountered error: ",
+                err.message,
+                "Closing socket"
+            );
+    
+            ws.close();
+        };
+    };
+    
+    check = () => {
+      const { ws } = this.state;
+      if (!ws || ws.readyState === WebSocket.CLOSED) this.connect(); //check if websocket instance is closed, if so call `connect` function.
+    };
       
 
       
@@ -51,6 +114,7 @@ class TestValue extends Component {
         
 
       <body className='Body'>
+        
          <div>Nilai x : {Math.round(this.state.xbtn1)}
          Nilai y : {Math.round(this.state.xbtn2)}</div> 
         <motion.div     
@@ -69,6 +133,7 @@ class TestValue extends Component {
         left : '200px',
       }}
        ref={this.divRef}
+
        
        id="ButtonSatu">             
           
