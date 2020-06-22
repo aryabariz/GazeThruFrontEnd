@@ -13,18 +13,15 @@ class TestValue extends Component {
         this.state= {
             ybtn1:[],
             xbtn1:[],
-            
+            ws: null,
           };
             
         this.divRef= React.createRef();
       }
-    
-      
+
   
     componentDidMount() {
-        this.connect();
-        
-
+        //this.connect();
         const styles = window.getComputedStyle(document.getElementById("ButtonSatu"));
         //const matrix = styles.transform|| styles.webkitTransform || styles.mozTransform;
         //const ubah = matrix.match(/matrix.*\((.+)\)/);
@@ -43,7 +40,7 @@ class TestValue extends Component {
               console.log(error)
           }
   
-          }, 1000);
+          }, 10000);
           
           return () => clearInterval(interval);  
           
@@ -51,21 +48,62 @@ class TestValue extends Component {
 
       
       connect = () => {
-        var ws = new WebSocket("wss://echo.websocket.org");
-        
+        var ws = new WebSocket("ws://localhost:3000");
+        let that = this; // cache the this
+        var connectInterval;
+    
+        // websocket onopen event listener
         ws.onopen = () => {
-            console.log('connect bisa');
-            
+            console.log("connected websocket main component");
+    
+            this.setState({ ws: ws });
+    
+            that.timeout = 250; // reset timer to 250 on open of websocket connection 
+            clearTimeout(connectInterval); // clear Interval on on open of websocket connection
+        };
+    
+        // websocket onclose event listener
+        ws.onclose = e => {
+            console.log(
+                `Socket is closed. Reconnect will be attempted in ${Math.min(
+                    10000 / 1000,
+                    (that.timeout + that.timeout) / 1000
+                )} second.`,
+                e.reason
+            );
+    
+            that.timeout = that.timeout + that.timeout; //increment retry interval
+            connectInterval = setTimeout(this.check, Math.min(10000, that.timeout)); //call check function after timeout
+        };
+    
+        // websocket onerror event listener
+        ws.onerror = err => {
+            console.error(
+                "Socket encountered error: ",
+                err.message,
+                "Closing socket"
+            );
+    
+            ws.close();
         };
 
-        ws.onclose = () => {
-          console.log('disconnected')
-  
-          };
-        
-       
+        ws.sendMessage=()=>{
+          try {
+            ws.send(JSON.stringify({
+              Xbtn1 : this.state.btn1,
+              Xbtn2 : this.state.btn2,
+            }));
+            
+        } catch (error) {
+            console.log(error) 
+        }
+        }
     };
     
+    check = () => {
+      const { ws } = this.state;
+      if (!ws || ws.readyState === WebSocket.CLOSED) this.connect(); //check if websocket instance is closed, if so call `connect` function.
+    };
     
     
     
