@@ -13,7 +13,12 @@ class TestValue extends Component {
         this.state= {
             ybtn1:[],
             xbtn1:[],
-            
+            btnx1: [],
+            btny1: [],
+            data: [],
+            btnstate: [],
+            Xeye: [],
+
           };
             
         this.divRef= React.createRef();
@@ -23,7 +28,7 @@ class TestValue extends Component {
   
     componentDidMount() {
         
-        
+      this.connect();
 
         const styles = window.getComputedStyle(document.getElementById("ButtonSatu"));
         //const matrix = styles.transform|| styles.webkitTransform || styles.mozTransform;
@@ -32,13 +37,13 @@ class TestValue extends Component {
         const interval = setInterval(() => {
             //console.log(styles.transform.match(/(-?[0-9.]+)/g));
             //console.log(styles.transform.split('(')[1].split(')')[0].split(',')[5]);
-            this.connect();
+            
             try{
             this.setState({
                 xbtn1: styles.webkitTransform.match(/(-?[0-9.]+)/g)[4],
-                xbtn2: styles.webkitTransform.match(/(-?[0-9.]+)/g)[5],
-                btn1: Math.round(this.state.xbtn1),
-                btn2: Math.round(this.state.xbtn2),
+                ybtn1: styles.webkitTransform.match(/(-?[0-9.]+)/g)[5],
+                btnx1: Math.round(this.state.xbtn1),
+                btny1: Math.round(this.state.ybtn1),
             })}catch (error) {
               
               console.log(error)
@@ -53,16 +58,39 @@ class TestValue extends Component {
 
       
       connect = () => {
-        var ws = new WebSocket("wss://echo.websocket.org");
+        var ws = new WebSocket("ws://192.168.43.228:8000/gazethru");
         
         ws.onopen = () => {
-          var json = JSON.stringify({
-            Xbtn1 : this.state.btn1,
-            Xbtn2 : this.state.btn2,                 
-          })
-          ws.send(json)
+          const interval = setInterval(() => {
+            //console.log(styles.transform.match(/(-?[0-9.]+)/g));
+            //console.log(styles.transform.split('(')[1].split(')')[0].split(',')[5]);
+            try{
+              var json = JSON.stringify({
+                Xbtn1 : this.state.btnx1,
+                Ybtn1 : this.state.btny1,                 
+              })
+              ws.send(json)
+              console.log('Sent:'+ json);
+               
+            }catch (error) {
+              
+              console.log(error)
+          }
+
+          }, 1000);
+
           
-            console.log('Sent:'+ json);
+        ws.onmessage = evt => {
+          // listen to data sent from the websocket server
+          const message = JSON.parse(evt.data)
+          this.setState({data : message.buttonId})
+          console.log(this.state.data)
+
+    
+          }
+
+          return () => clearInterval(interval);  
+          
   
          
         };
@@ -85,8 +113,10 @@ class TestValue extends Component {
         clearInterval(this.interval);
       }
 
+
+
     render(){
-        
+       
 
     return (
 
@@ -95,8 +125,9 @@ class TestValue extends Component {
 
       <body className='Body'>
         
-         <div>Nilai x : {this.state.btn1}
-         Nilai y : {this.state.btn2}</div> 
+         <div>Nilai x : {this.state.btnx1} <br/>
+         Nilai y : {this.state.btny1} <br/>
+         print data: {this.state.data}</div> 
         <motion.div     
       animate={{
         x:100,
@@ -120,7 +151,7 @@ class TestValue extends Component {
       <Button className="Button" color={"blue"} >
           <p id="FontButton">Informasi</p>
       </Button>
-      <Progress class='ui inverted progress' percent={100} indicating attached='bottom' />
+      <Progress class='ui inverted progress' percent={this.state.data} indicating attached='bottom' />
       
       </motion.div>
       
